@@ -1,0 +1,32 @@
+.main{
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    &:hover{
+        .wechat{
+            width: 155px;
+            // max-width: 200px;
+        }
+
+        .logo{
+            transform: rotate(1turn);
+        }
+    }
+}
+
+.logo {
+    width: 56px;
+    height: 56px;
+    border-radius: 56px;
+    border: 4px solid #35b2c0;
+    cursor: pointer;
+    transition-duration: 2s;
+}
+
+.wechat{
+    width: 0px;
+    color: #ffff;
+    margin-left: 8px;
+    cursor: pointer;
+    transition-duration: 2s;
+}

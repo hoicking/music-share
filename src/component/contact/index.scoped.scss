@@ -5,12 +5,40 @@
     &:hover{
         .wechat{
             width: 155px;
-            // max-width: 200px;
+
+            &-detail{
+                animation-name: color-change;
+                animation-duration: 5s;
+                animation-iteration-count: infinite;
+                animation-direction: alternate;
+            }
         }
 
         .logo{
             transform: rotate(1turn);
         }
+    }
+}
+
+@keyframes color-change{
+    0%{
+        color:#a8edea;
+    }
+
+    25%{
+        color: #e0c3fc;
+    }
+
+    50%{
+        color: #96fbc4;
+    }
+
+    75%{
+        color: #fda085;
+    }
+
+    100%{
+        color: #5ee7df;
     }
 }
 
@@ -29,4 +57,9 @@
     margin-left: 8px;
     cursor: pointer;
     transition-duration: 2s;
+    font-weight: bold;
+
+    &-detail{
+        font-weight: normal;
+    }
 }

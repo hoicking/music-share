@@ -1,4 +1,4 @@
-export default [
+const arr = [
     {
       name: 'Rare Wind',
       description: '#a8edea → #fed6e3',
@@ -63,4 +63,5 @@ export default [
       endColor: '#f9f586'
     }
   ]
-  
+
+export default arr

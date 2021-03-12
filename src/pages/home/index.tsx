@@ -163,9 +163,7 @@ function Index() {
 
   return (
     <div className='root'>
-      <div className='owner'>
-        <Contact  />
-      </div>
+      <Contact  />
       <div className={`canvas-block ${playing ? 'spin' : ''}`} onClick={playAudio}>
         <canvas id='cover' height={CANVAS_HEIGHT} width={CANVAS_WIDTH}></canvas>
       </div>

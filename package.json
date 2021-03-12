@@ -17,8 +17,8 @@
     "http-proxy-middleware": "^1.0.6",
     "lodash": "^4.17.20",
     "node-sass": "^4.14.1",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0",
     "react-scripts": "^4.0.3",
     "typescript": "~3.7.2"
@@ -28,7 +28,7 @@
     "eject": "craco eject",
     "build": "craco build"
   },
-  "eslintConfig": { 
+  "eslintConfig": {
     "extends": "react-app"
   },
   "browserslist": {

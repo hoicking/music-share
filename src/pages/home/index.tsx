@@ -3,7 +3,7 @@ import shuffle from 'lodash/shuffle'
 
 import Contact from '../../component/contact'
 import Colors from '../../config/drawingBoard'
-import MUSIC_LIST from '../../config/musicList'
+import {MUSIC_LIST} from '../../config/musicList'
 import './index.scoped.scss'
 
 const LINE_COLOR = '#35b2c0'

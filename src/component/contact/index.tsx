@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { useState, useRef } from 'react'
 
 import logo from '../../assets/imgs/pokita.png'
 
 import './index.scoped.scss'
 
-const Index = () => {
+const Index = (props: any) => {
+
+    const {playing} = props
+
     return (
         <div className='main'>
-            <img className='logo' src={logo} alt='avatar' title='Pochita' />
+            <img className={`logo ${playing?'playing': ''}`} src={logo} alt='avatar' title='Pochita' />
             <div className='wechat'> 
                 <span>Wechat:</span>
                 <br />

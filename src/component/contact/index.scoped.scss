@@ -1,4 +1,4 @@
-.main{
+.main {
     position: absolute;
     top: 16px;
     right: 16px;
@@ -6,42 +6,44 @@
     align-items: center;
     overflow: hidden;
     z-index: 1;
-    &:hover{
-        .wechat{
+    &:hover {
+        .wechat {
             width: 155px;
 
-            &-detail{
-                animation-name: color-change;
-                animation-duration: 5s;
-                animation-iteration-count: infinite;
-                animation-direction: alternate;
+            &-detail {
+                // animation-name: color-change;
+                // animation-duration: 5s;
+                // animation-iteration-count: infinite;
+                // animation-direction: alternate;
+                animation: color-change 5s alternate infinite;
+
             }
         }
 
-        .logo{
+        .logo {
             transform: rotate(1turn);
         }
     }
 }
 
-@keyframes color-change{
-    0%{
-        color:#a8edea;
+@keyframes color-change {
+    0% {
+        color: #a8edea;
     }
 
-    25%{
+    25% {
         color: #e0c3fc;
     }
 
-    50%{
+    50% {
         color: #96fbc4;
     }
 
-    75%{
+    75% {
         color: #fda085;
     }
 
-    100%{
+    100% {
         color: #5ee7df;
     }
 }
@@ -55,15 +57,30 @@
     transition-duration: 2s;
 }
 
-.wechat{
+.playing {
+    // animation-name: playing;
+    // animation-duration: 3s;
+    // animation-iteration-count: infinite;
+    // animation-direction: linear;
+    animation: playing 3s linear infinite;
+}
+
+@keyframes playing {
+    0%{-webkit-transform:rotate(0deg);}
+    // 25%{-webkit-transform:rotate(90deg);}
+    // 50%{-webkit-transform:rotate(180deg);}
+    // 75%{-webkit-transform:rotate(270deg);}
+    100%{-webkit-transform:rotate(360deg);}
+}
+
+.wechat {
     width: 0px;
     color: #ffff;
     margin-left: 8px;
-    cursor: pointer;
     transition-duration: 2s;
     font-weight: bold;
-
-    &-detail{
+    cursor: default;
+    &-detail {
         font-weight: normal;
     }
 }

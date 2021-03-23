@@ -7,7 +7,7 @@ class Index {
         try {
             const res: any = await request.get('/word')
 
-            return res.data.data
+            return res.data
         } catch (error) {
             // throw error
             console.log(error)

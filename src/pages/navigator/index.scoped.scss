@@ -56,5 +56,10 @@ $dutation: 0.3s;
     margin-top: 30%;
     font-size: 24px;
     letter-spacing: 2px;
-    transition-duration: $dutation;
+    transition-duration: 3s;
+    opacity: 0;
+}
+
+.text{
+    opacity: 1;
 }

@@ -110,7 +110,7 @@ function Index() {
                                 onMouseMove={onMouseMove}
                                 onMouseUp={onMouseUp}
                             >
-                                <div className='text-area'>
+                                <div className={`text-area ${word?'text': ''}`}>
                                     {word}
                                     <br />
                                     <span></span>

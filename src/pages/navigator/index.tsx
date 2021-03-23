@@ -2,6 +2,7 @@ import React, { useRef, useState, useEffect } from 'react'
 
 import Contact from '../../component/contact'
 import { NAVIGATOR_MUSIC } from '../../config/musicList'
+import NaviAction from '../../action/navigator'
 
 import './index.scoped.scss'
 
@@ -27,7 +28,7 @@ const useMouse = () => {
             setPlaying(false)
 
             setSlideIndex(slideIndex + 1)
-        } else if(event.clientX === startPoint){
+        } else if (event.clientX === startPoint) {
             playAudio()
         }
     }
@@ -37,11 +38,11 @@ const useMouse = () => {
         }
     }
 
-    const playAudio = ()=> {
+    const playAudio = () => {
         setPlaying(!playing)
-        if(playing){
+        if (playing) {
             pausePlay()
-        }else{
+        } else {
             startPlay()
         }
     }
@@ -57,14 +58,20 @@ const useMouse = () => {
         audio.pause()
     }
 
-    return [hold, slideIndex,playing, onMouseDown, onMouseMove, onMouseUp] as any
+    return [hold, slideIndex, playing, onMouseDown, onMouseMove, onMouseUp, setPlaying] as any
 
 }
 
+
+
 function Index() {
     const divRef = useRef<HTMLDivElement>(null)
-    const [hold, slideIndex, playing,onMouseDown, onMouseMove, onMouseUp] = useMouse()
+    const [word, setWord] = useState('')
+    const [hold, slideIndex, playing, onMouseDown, onMouseMove, onMouseUp, setPlaying] = useMouse()
 
+    const musicEnd = () => {
+        setPlaying(false)
+    }
 
     useEffect(() => {
         const translate = 100 * slideIndex
@@ -72,45 +79,54 @@ function Index() {
 
     }, [slideIndex])
 
+    useEffect(() => {
+        const getWord = async() =>{
+            const value = await new NaviAction().getOneWord()
+            console.log('www', value)
+            setWord(value)
+        }
+
+        getWord()
+    }, [])
+
     return <div className='root'>
-        <Contact playing={playing}/>
+        <Contact playing={playing} />
         <div ref={divRef} className='panels'>
             {
                 NAVIGATOR_MUSIC.map(item => {
                     return (
                         <div
-                            key={item.name} className={`panel ${hold ? 'panel-hold' : ''}`}
+                            key={item.name}
+                            className={`panel ${hold ? 'panel-hold' : ''} ${playing ? 'playing' : ''}`}
                             style={{
                                 width: `${document.body.clientWidth}px`,
                                 flexBasis: `${document.body.clientWidth}px`
                             }}
                         >
                             <div
-                                className={`background ${hold ? 'hold' : ''}`}
-                                style={{ backgroundImage: `url(${item.image})`, backgroundSize: 'cover' }}
+                                className={`background ${hold ? 'hold' : ''} `}
+                                style={{ backgroundImage: `url(${item.image})`, backgroundSize: '100% 100%' }}
                                 onMouseDown={onMouseDown}
                                 onMouseMove={onMouseMove}
                                 onMouseUp={onMouseUp}
                             >
+                                <div className='text-area'>
+                                    {word}
+                                    <br />
+                                    <span></span>
+                                </div>
+
                             </div>
                         </div>
                     )
                 })
             }
         </div>
-
         <audio
             id={'audio'}
             src={NAVIGATOR_MUSIC[slideIndex].url}
-            // onEnded={playNext}
-            // autoPlay
-            // onPlay={startPlay}
-            // onPause={pausePlay}
-        // crossOrigin='anonymous'
+            onEnded={musicEnd}
         />
-
-
-
     </div>
 
 }

@@ -35,9 +35,25 @@ $dutation: 0.3s;
     height: 100%;
     cursor: pointer;
     transition-duration: $dutation;
+    display: flex;
+    // align-items: center;
+    justify-content: center;
 }
+
+.playing{
+}
+
 
 .hold{
     height: 90%;
     border-radius: 20px;
+}
+
+.text-area{
+    min-width: 200px;
+    max-width: 60%;
+    color: #fff;
+    margin-top: 30%;
+    font-size: 24px;
+    letter-spacing: 2px;
 }

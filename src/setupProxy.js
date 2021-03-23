@@ -12,8 +12,8 @@ module.exports = function (app) {
 
 
   app.use(
-    createProxyMiddleware('/other', {
-      target: 'https://tingfengtest.oss-cn-shanghai.aliyuncs.com',
+    createProxyMiddleware('/word', {
+      target: 'https://api.ixiaowai.cn/api/ylapi.php',
       changeOrigin: true
     })
   );

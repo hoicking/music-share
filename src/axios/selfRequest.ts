@@ -1,7 +1,7 @@
 import axios from 'axios'
 // import Cookie from 'js-cookie'
 
-const TIMEOUT_NUMBER = 10
+const TIMEOUT_NUMBER = 30
 
 let loading
 

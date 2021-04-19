@@ -4,6 +4,8 @@ import shuffle from 'lodash/shuffle'
 import Contact from '../../component/contact'
 import Colors from '../../config/drawingBoard'
 import {MUSIC_LIST} from '../../config/musicList'
+
+import {openTab} from '../../util/util'
 import './index.scoped.scss'
 
 const LINE_COLOR = '#35b2c0'
@@ -161,9 +163,13 @@ function Index() {
     setPlaying(false)
   }
 
+  const openPage = ()=>{
+    openTab('/author')
+  }
+
   return (
     <div className='root'>
-      <Contact  />
+      <Contact  openPage={openPage}/>
       <div className={`canvas-block ${playing ? 'spin' : ''}`} onClick={playAudio}>
         <canvas id='cover' height={CANVAS_HEIGHT} width={CANVAS_WIDTH}></canvas>
       </div>

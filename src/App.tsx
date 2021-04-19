@@ -19,7 +19,7 @@ import './App.css';
 
 function App() {
 
-  if(window.top.location === window.self.location){
+  if(window.top.location !== window.self.location){
     window.location.replace('http://baidu.com')
   }
 

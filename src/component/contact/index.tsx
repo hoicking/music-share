@@ -8,13 +8,17 @@ const Index = (props: any) => {
 
     const {playing} = props
 
+    const openPage = ()=>{
+        props.openPage()   
+    }
+
     return (
         <div className='main'>
             <img className={`logo ${playing?'playing': ''}`} src={logo} alt='avatar' title='Pochita' />
             <div className='wechat'> 
                 <span>Wechat:</span>
                 <br />
-                <span className='wechat-detail'>ACORPSEISTALKING</span>
+                <span className='wechat-detail' onClick={openPage}>ACORPSEISTALKING</span>
             </div>
         </div>
     )

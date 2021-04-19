@@ -1,0 +1,25 @@
+.root{
+    width: 50vw;
+    height: 100%;    
+}
+
+
+.block{
+    width: 100%;
+    height: 0;
+    padding-bottom: 75%; // 垂直方向上的内外边距是基于包含块的宽度来计算的
+
+    background: yellow;
+}
+
+.text::first-letter{
+    color: orange;
+}
+
+.text{
+    width: 0;
+    height: 0; 
+    border-width: 20px; 
+    border-style: "solid";
+     border-color: transparent transparent red transparent; 
+}

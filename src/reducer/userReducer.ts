@@ -3,7 +3,7 @@ const initialState = {
     age: null
 }
 
-function reducer(state: any, action: any){
+function reducer (state: any, action: any){
     switch(action.type) {
         case 'GET_NAME':
             return {

@@ -2,9 +2,8 @@ const navigatorState = {
 
 }
 
-function navigatorReducer(){
-
-
+function navigatorReducer (){
+    return 
 }
 
 export {

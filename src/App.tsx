@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,9 +15,9 @@ import { initialState, reducer } from './reducer/userReducer'
 
 import { navigatorReducer, navigatorState } from './reducer/navigatorReducer'
 import { NavigatorProvider } from './context/navigatorContext'
-import './App.css';
+import './App.css'
 
-function App() {
+function App () {
 
   if(window.top.location !== window.self.location){
     window.location.replace('http://baidu.com')
@@ -51,7 +51,7 @@ function App() {
         </Switch>
       </div>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

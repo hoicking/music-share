@@ -22,35 +22,35 @@ const CANVAS_X = WINDOW_WIDTH > 800 ? 300 : 150,
 const TIMES = WINDOW_WIDTH > 800 ? 1 : 2 
 const SPLICES_NUM = 380
 
-function Index() {
+function Index () {
   const rows = useRef(Colors)
 
-  const [playing, setPlaying] = useState<Boolean>(false)
+  const [playing, setPlaying] = useState<boolean>(false)
   const [audioSource, setAudioSource] = useState<MediaElementAudioSourceNode>()
   const [audioContext, setAudioContext] = useState<AudioContext>()
   const [currentMusic, setCurrentMusic] = useState<number>(0)
-  const [loaded, setLoaded] = useState<Boolean>(false)
+  const [loaded, setLoaded] = useState<boolean>(false)
 
   useEffect(() => {
     const wrap = document.getElementById('cover') as HTMLCanvasElement
     const ctx = wrap.getContext('2d')
     if (ctx) {
-      ctx.clearRect(0, 0, wrap.width, wrap.height);
+      ctx.clearRect(0, 0, wrap.width, wrap.height)
       ctx.beginPath()
       ctx.arc(CANVAS_X, CANVAS_Y, CANVAS_RADIUS, 0, Math.PI * 2, true)
       ctx.strokeStyle = LINE_COLOR
       ctx.lineWidth = 5
-      ctx.stroke();
+      ctx.stroke()
     }
   }, [])
 
   useEffect(() => {
     const interval = setInterval(() => {
-      let shuffledList = shuffle(Colors)
+      const shuffledList = shuffle(Colors)
       rows.current = shuffledList
-    }, 2000);
-    return () => clearInterval(interval);
-  }, []);
+    }, 2000)
+    return () => clearInterval(interval)
+  }, [])
 
   useEffect(()=>{
     setCurrentMusic(0)
@@ -61,7 +61,7 @@ function Index() {
     const wrap = document.getElementById('cover') as HTMLCanvasElement
     const ctx = wrap.getContext('2d')
     if (ctx) {
-      ctx.clearRect(0, 0, wrap.width, wrap.height);
+      ctx.clearRect(0, 0, wrap.width, wrap.height)
       ctx.beginPath()
       ctx.arc(CANVAS_X, CANVAS_Y, CANVAS_ANIMATION_RAIDUS, 0, Math.PI * 2, true)
 
@@ -77,18 +77,18 @@ function Index() {
             CANVAS_X + CANVAS_RADIUS * Math.cos(i),
             CANVAS_Y + CANVAS_RADIUS * Math.sin(i),
             CANVAS_X + (CANVAS_RADIUS + radius) * Math.cos(i),
-            CANVAS_Y + (CANVAS_RADIUS + radius) * Math.sin(i));  
+            CANVAS_Y + (CANVAS_RADIUS + radius) * Math.sin(i))  
 
         g.addColorStop(0, startColor)
         g.addColorStop(1, endColor)
         ctx.strokeStyle = g
 
-        ctx.moveTo(CANVAS_X + CANVAS_RADIUS * Math.cos(i), CANVAS_Y + CANVAS_RADIUS * Math.sin(i));
+        ctx.moveTo(CANVAS_X + CANVAS_RADIUS * Math.cos(i), CANVAS_Y + CANVAS_RADIUS * Math.sin(i))
         ctx.lineTo(CANVAS_X + (CANVAS_RADIUS + radius) * Math.cos(i), CANVAS_Y + (CANVAS_RADIUS + radius) * Math.sin(i))
         // ctx.strokeStyle = LINE_COLOR
         ctx.stroke()
       }
-      ctx.stroke();
+      ctx.stroke()
     }
   }
 
@@ -101,21 +101,21 @@ function Index() {
       setAudioContext(context)
     }
 
-    const audio = document.getElementById('audio');
+    const audio = document.getElementById('audio')
     const analysis = context.createAnalyser()
     if (analysis) {
       let source
       if (!audioSource) {
-        source = context.createMediaElementSource(audio as any);
+        source = context.createMediaElementSource(audio as any)
         setAudioSource(source)
       } else {
         source = audioSource
       }
 
-      source.connect(analysis);
-      analysis.connect(context.destination);
+      source.connect(analysis)
+      analysis.connect(context.destination)
 
-      let dataArray = new Uint8Array(SPLICES_NUM)
+      const dataArray = new Uint8Array(SPLICES_NUM)
       const draw = () => {
         if (analysis) {
           analysis.getByteFrequencyData(dataArray)
@@ -129,7 +129,7 @@ function Index() {
   }
 
   const playAudio = () => {
-    const audio: any = document.getElementById("audio")
+    const audio: any = document.getElementById('audio')
     if (playing) {
       audio.pause()
     } else if (audio) {
@@ -169,7 +169,7 @@ function Index() {
 
   return (
     <div className='root'>
-      <Contact  openPage={openPage}/>
+      <Contact openPage={openPage}/>
       <div className={`canvas-block ${playing ? 'spin' : ''}`} onClick={playAudio}>
         <canvas id='cover' height={CANVAS_HEIGHT} width={CANVAS_WIDTH}></canvas>
       </div>
@@ -183,7 +183,7 @@ function Index() {
         crossOrigin='anonymous'
       />
     </div>
-  );
+  )
 }
 
-export default Index;
+export default Index

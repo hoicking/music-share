@@ -34,9 +34,8 @@ const useMouse = () => {
     }
 
     const onMouseMove = (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-        if (hold) {
-        }
-    }
+        //
+    } 
 
     const playAudio = () => {
         setPlaying(!playing)
@@ -63,8 +62,7 @@ const useMouse = () => {
 }
 
 
-
-function Index() {
+function Index () {
     const divRef = useRef<HTMLDivElement>(null)
     const [word, setWord] = useState('')
     const [hold, slideIndex, playing, onMouseDown, onMouseMove, onMouseUp, setPlaying] = useMouse()
@@ -80,9 +78,8 @@ function Index() {
     }, [slideIndex])
 
     useEffect(() => {
-        const getWord = async() =>{
+        const getWord = async () =>{
             const value = await new NaviAction().getOneWord()
-            console.log('www', value)
             setWord(value)
         }
 

@@ -1,36 +1,36 @@
 
 
 class ClientSocket {
-    private static instance: null | Object = null
+    private static instance: any = null
 
-    private handleMsg: Function | null
-    private status: Number | null
+    private handleMsg: unknown
+    private status: number | null
     private socket: WebSocket | null
 
 
-    constructor() {
+    constructor () {
         this.handleMsg = null
         this.status = null
         this.socket = null
         this.connect()
     }
 
-    static getInstance(): Object {
+    static getInstance (): ClientSocket {
         if (!this.instance) {
             this.instance = new ClientSocket()
         }
         return this.instance
     }
 
-    connect(): void {
-        this.socket = new WebSocket(`ws://127.0.0.1:3334`)
+    connect (): void {
+        this.socket = new WebSocket('ws://127.0.0.1:3334')
         this.socket.onopen = () => {
-            console.log('websocket has connected')
+            // console.log('websocket has connected')
             this.socket?.send('hello')
         }
 
         this.socket.onmessage = (msg) => {
-            console.log('receive msg', msg.data)
+            // console.log('receive msg', msg.data)
         }
 
 
@@ -41,7 +41,7 @@ class ClientSocket {
         }
     }
 
-    destory(): void {
+    destory (): void {
         ClientSocket.instance = null
     }
 }

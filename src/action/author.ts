@@ -1,18 +1,18 @@
 class Index{
 
-    public getName(){
+    public getName (){
         return new Promise((resolve, reject)=>{
             setTimeout(() => {
                 resolve(`holicking-${ Math.floor(Math.random()*10)}`)
-            }, 1000);
+            }, 1000)
         })
     }
 
-    public getAge(){
+    public getAge (){
         return new Promise((resolve, reject)=>{
             setTimeout(() => {
                 resolve(Math.floor(Math.random()* 100))
-            }, 1000);
+            }, 1000)
         })
     }
 

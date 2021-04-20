@@ -13,7 +13,7 @@ const NAVIGATOR_MUSIC = [
         name: 'bg1',
         url: 'https://web-1303060686.cos.ap-nanjing.myqcloud.com/audio/bg1.mp3',
         des: '',
-        image: 'https://web-1303060686.cos.ap-nanjing.myqcloud.com/image/background01.png',
+        image: 'https://web-1303060686.cos.ap-nanjing.myqcloud.com/image/background01.png'
     },
     {
         name: 'bg2',

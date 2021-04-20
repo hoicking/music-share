@@ -13,7 +13,7 @@ const Index = () => {
             <div className='grid-box'>
                 {
                     array.map((item, index) => {
-                        return <div className={`grid-item  item-${index + 1}`}>
+                        return <div key={item} className={`grid-item  item-${index + 1}`}>
                             {item}
                         </div>
                     })

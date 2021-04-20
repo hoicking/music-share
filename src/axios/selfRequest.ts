@@ -19,11 +19,11 @@ const instance = axios.create({
 })
 
 const startLoading = () => {
-    console.log('loading...')
+    // console.log('loading...')
 }
 
 const endLoading = () => {
-    console.log('endloading...')
+    // console.log('endloading...')
 }
 
 const cancelPending = (config: any) => {
@@ -32,7 +32,7 @@ const cancelPending = (config: any) => {
             if (item.UrlPath === config.url) {
                 item.Cancel() // 取消请求
                 pending.splice(index, 1) // 移除当前请求记录
-            };
+            }
         } else {
             item.Cancel() // 取消请求
             pending.splice(index, 1) // 移除当前请求记录
@@ -130,7 +130,7 @@ const handleErrorResponse = (err: any)=>{
             message: err.message
         }
         // 统一错误处理可以放这，例如页面提示错误...
-        console.log('统一错误处理: ', errData)
+        // console.log('统一错误处理: ', errData)
     }
     return errData
 }

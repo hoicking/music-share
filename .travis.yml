@@ -1,13 +1,9 @@
 language: node_js
 node_js:
-  - 12
+  - 12.18.3
 
 jobs:
 fast_finish: true
-allow_failures:
-  - env: EMBER_VERSION=release
-  - env: EMBER_VERSION=beta
-  - env: EMBER_VERSION=canary
 
 cache:
   directories:

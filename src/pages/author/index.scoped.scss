@@ -1,13 +1,16 @@
-.main{
+.main {
     height: 100%;
     overflow-y: auto;
     padding: 20px;
     box-sizing: border-box;
 }
 
-.grid-box{
+.grid-box {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); // auto表示自动填充
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(240px, 1fr)
+    ); // auto表示自动填充
     grid-gap: 10px;
     grid-auto-rows: minmax(240px, auto); //新增的行高
     grid-auto-flow: dense; //稠密布局
@@ -17,23 +20,27 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #fff;
-    font-size: 50px;
-    font-weight: bold;
     padding: 12px;
     border-radius: 8px;
     background-color: rgba(4, 125, 200, 0.8);
+    background-size: cover;;
     &:nth-child(odd) {
         background-color: rgba(44, 167, 249, 0.7);
     }
 }
 
-.item-3{
-    grid-column-end: span 3; //span 表示跨越
-    grid-row-end: span 4; 
+@for $i from 1 through 14 {
+    .item-#{$i} {
+        background-image: url("../../assets/imgs/pic-"+$i+".png");
+    }
 }
 
-.item-5{
+.item-3 {
+    grid-column-end: span 3; //span 表示跨越
+    grid-row-end: span 4;
+}
+
+.item-5 {
     grid-column-end: span 2;
-    grid-row-end: span 2;   
+    grid-row-end: span 2;
 }

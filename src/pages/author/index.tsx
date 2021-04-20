@@ -14,7 +14,6 @@ const Index = () => {
                 {
                     array.map((item, index) => {
                         return <div key={item} className={`grid-item  item-${index + 1}`}>
-                            {item}
                         </div>
                     })
                 }

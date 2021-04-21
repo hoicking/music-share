@@ -20,7 +20,7 @@
         "react",
         "@typescript-eslint"
     ],
-    "ignorePatterns": ["serviceWorker.ts","craco.config.js"],
+    "ignorePatterns": ["serviceWorker.ts","craco.config.js","config/*","*.d.ts","/scripts/*"],
     "rules": {
         "no-multi-spaces": 1,
         "space-before-function-paren": 1,
